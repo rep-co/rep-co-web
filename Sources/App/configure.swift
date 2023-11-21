@@ -1,10 +1,51 @@
+import AppRouting
+import HTMLKitVapor
 import Vapor
+import VaporRouting
+import Views
 
-// configures your application
-public func configure(_ app: Application) async throws {
-    // uncomment to serve files from /Public folder
-    // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+func appHandler(
+  request: Request,
+  route: AppRoute
+) async throws -> any AsyncResponseEncodable {
+  switch route {
+  case .index:
+    return try await request.htmlkit.render(
+      CommonLayout {
+        IndexView()
+      }
+    )
 
-    // register routes
-    try routes(app)
+  case .projects:
+    return try await request.htmlkit.render(
+      CommonLayout {
+        ProjectsView()
+      }
+    )
+
+  case .hola(.index):
+    return try await request.htmlkit.render(
+      CommonLayout {
+        HolaView()
+      }
+    )
+
+  case .hola(.support):
+    return try await request.htmlkit.render(
+      CommonLayout {
+        HolaSupportView()
+      }
+    )
+
+  case .hola(.privacyPolicy):
+    return try await request.htmlkit.render(
+      CommonLayout {
+        HolaPrivacyPolicyView()
+      }
+    )
+  }
+}
+
+func configure(_ app: Application) async throws {
+  app.mount(AppRouter(), use: appHandler)
 }
