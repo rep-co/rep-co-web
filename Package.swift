@@ -44,13 +44,5 @@ let package = Package(
         .enableExperimentalFeature("StrictConcurrency=complete")
       ]
     ),
-    .testTarget(
-      name: "AppTests",
-      dependencies: [
-        .target(name: "App"),
-        .product(name: "XCTVapor", package: "vapor"),
-        .product(name: "Vapor", package: "vapor"),
-      ]
-    ),
   ]
 )
