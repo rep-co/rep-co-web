@@ -5,7 +5,13 @@ import PackageDescription
 let package = Package(
   name: "rep-co-web",
   platforms: [
-    .macOS(.v13)
+    .macOS(.v13),
+    .iOS(.v17),
+  ],
+  products: [
+    .executable(name: "App", targets: ["App"]),
+    .library(name: "AppRouting", targets: ["AppRouting"]),
+    .library(name: "Views", targets: ["Views"]),
   ],
   dependencies: [
     .package(url: "https://github.com/vapor/vapor.git", exact: "4.86.2"),

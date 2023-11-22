@@ -9,6 +9,10 @@ public struct AppRouter: ParserPrinter {
         Path { "projects" }
       }
 
+      Route(.case(AppRoute.team)) {
+        Path { "team" }
+      }
+
       Route(.case(AppRoute.hola)) {
         Path { "hola" }
         HolaRouter()

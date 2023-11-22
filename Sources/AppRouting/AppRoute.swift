@@ -1,6 +1,7 @@
 public enum AppRoute {
   case index
   case projects
+  case team
   case hola(HolaRoute)
 }
 

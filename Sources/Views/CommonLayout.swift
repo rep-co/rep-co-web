@@ -4,8 +4,16 @@ import HTMLKitComponents
 public struct CommonLayout: View {
   public var body: Content {
     Document(.html5)
+
+    Head {}
+
     Html {
       Body {
+        HeaderView(items: [
+          .init(label: "VK", url: "https://vk.com"),
+          .init(label: "Yandex", url: "https://ya.ru"),
+        ])
+
         Div {
           self.content
         }
@@ -13,7 +21,9 @@ public struct CommonLayout: View {
     }
   }
 
-  public init(@ContentBuilder<Content> content: () -> [Content]) {
+  public init(
+    @ContentBuilder<Content> content: () -> [Content]
+  ) {
     self.content = content()
   }
 

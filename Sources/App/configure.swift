@@ -23,6 +23,13 @@ func appHandler(
       }
     )
 
+  case .team:
+    return try await request.htmlkit.render(
+      CommonLayout {
+        ProjectsView()
+      }
+    )
+
   case .hola(.index):
     return try await request.htmlkit.render(
       CommonLayout {
