@@ -39,15 +39,13 @@ public struct HeaderView: View {
         Division {
           self.labels.map(HeaderLableItemView.init)
         }
-        .class("navigation-label-links")
 
         Division {
           self.icons.map(HeaderIconItemView.init)
         }
-        .class("navigation-icon-links")
       }
-      .class("navigation")
     }
+    .class(self.headerClass.rawValue)
   }
 
   public init(
@@ -61,6 +59,11 @@ public struct HeaderView: View {
   private let labels: [LableItem]
   private let icons: [IconItem]
 
+  private let headerClass: Class = .union(
+    Classes.Display.flex,
+    Classes.Flex.Justify.spaceBetween,
+    Classes.Flex.Items.center
+  )
   private let logoClass: Class = .union(
     Classes.Text.Weight.bold,
     Classes.Text.Size.rem1_5,

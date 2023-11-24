@@ -28,6 +28,7 @@ public enum Classes {
     public enum Justify {
       public static let start: Class = "flex-justify-start"
       public static let center: Class = "flex-justify-center"
+      public static let spaceBetween: Class = "flex-justify-space-between"
     }
 
     public enum Items {
