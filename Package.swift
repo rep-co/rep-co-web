@@ -44,6 +44,16 @@ let package = Package(
     .target(
       name: "Views",
       dependencies: [
+        "Styles",
+        .product(name: "HTMLKit", package: "HTMLKit"),
+      ],
+      swiftSettings: [
+        .enableExperimentalFeature("StrictConcurrency=complete")
+      ]
+    ),
+    .target(
+      name: "Styles",
+      dependencies: [
         .product(name: "HTMLKit", package: "HTMLKit")
       ],
       swiftSettings: [

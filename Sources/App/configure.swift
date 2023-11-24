@@ -54,5 +54,6 @@ func appHandler(
 }
 
 func configure(_ app: Application) async throws {
+  app.middleware.use(FileMiddleware(publicDirectory: "/Users/tplaymeow/rep-co-web/Public"))
   app.mount(AppRouter(), use: appHandler)
 }
